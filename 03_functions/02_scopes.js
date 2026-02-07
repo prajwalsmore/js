@@ -53,6 +53,6 @@ function addone(num){
 
 
 addTwo(5)
-const addTwo = function(num){
+const addTwo = function(num){ //because its saved in a variable
     return num + 2
 }
