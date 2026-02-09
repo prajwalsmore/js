@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Prajwal More</title>
+</head>
+<body style= "background-color : #121212; color : white "; >
+    
+
+
+</body>
+
+<script>
+    const div = document.createElement('div')
+    console.log(div);
+    div.className = "main"
+    div.id = Math.round(Math.random() * 10 + 1)
+    div.setAttribute("title", "generated title")
+    div.style.backgroundColor = 'Green'
+    div.style.padding = '12px'
+    // div.innerText = "Chalo kare code"
+    const addtext = document.createTextNode("Chalo kare code")
+    div.appendChild(addtext)
+    document.body.appendChild(div)
+
+    const div2 = document.createElement('div')
+    console.log(div2);
+    div2.className = 'main2'
+    div2.id = "myId"
+    div2.setAttribute("title", "notgenerated title")
+    div2.style.backgroundColor = "pink"
+    div2.style.padding = '15px'
+    div2.innerText = "Chaloooooooooooo!"
+    // div2.append(addtext2)
+    document.body.appendChild(div2)
+
+</script>
+</html>
