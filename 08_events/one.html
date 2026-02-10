@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events </title>
+</head>
+<body style="background-color: #121212; color: antiquewhite;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li> //using inline onclick approach is not good practice
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // document.getElementById('owl').onclick = function(){
+    //     alert('Clicked on owl')
+    // } 
+    // again not a good practice there is new approach
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     alert("Clicked on own again") //best approach u can say
+    // })
+
+    //attachEvent()
+    //jQuery - oneventListner
+
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log(e);
+        
+    // })
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("U clicked on ul");
+        
+    // })
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("again u click on own");
+    //     e.stopPropagation() //helps to stop propogation and out put is above line
+    // })
+
+    /*
+    again u click on own
+    U clicked on ul
+
+    this is output and its called as bubling, smaller to larger or bottom level to top level
+    */
+
+//    document.getElementById('google').addEventListener('click', function(e){
+//     e.preventDefault();
+//     e.stopPropagation()
+//     console.log("Clicked on Google");
+    
+//    })
+
+    // document.querySelector('#images').addEventListener('click', function(e){
+    //     console.log(e.target.parentNode);
+    //     let removeIt = e.target.parentNode
+        // removeIt.remove()
+        // removeIt.parentNode.removeChild(removeIt)
+    // })
+    //but here problem is if we click on list then whole list gets vanished
+    document.querySelector('#google').addEventListener('click', function(e){
+        e.preventDefault()
+        let removeIt = e.target.parentNode
+        removeIt.remove()
+    }) 
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName);
+
+       
+
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.id)
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+
+        }
+        
+    })
+
+        
+
+    
+
+
+
+</script>
+</html>
